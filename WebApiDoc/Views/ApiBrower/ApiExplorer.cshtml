@@ -1,0 +1,70 @@
+﻿@model List<WebApiDoc.Models.ApiDescriptionModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ApiExplorer</title>
+    <link href="~/Styles/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <ul class="list-group">
+                    @foreach (var api in Model)
+                    {
+                        <li class="list-group-item">
+                            <b>@api.HttpMethod @api.RelativePath</b>
+                            <p>Summary: @api.DocDescription.Summary</p>
+                            <p>Example: @api.DocDescription.Example</p>
+                            <hr />
+                            @if (api.Parameters.Any())
+                            {
+                                <b>Parameters</b>
+                                <table class="table table-bordered">
+                                    <caption>Parameters</caption>
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Source</th>
+                                            <th>Comment</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var para in api.Parameters)
+                                        {
+                                            <tr>
+                                                <td>@para.Name</td>
+                                                <td>@para.TypeName</td>
+                                                <td>@para.Source</td>
+                                                <th>@para.DocMemPara.Comment</th>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+
+                            }
+                            else
+                            {
+                                @:No Parameters
+                            }
+
+                        </li>
+                    }
+                </ul>
+
+
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

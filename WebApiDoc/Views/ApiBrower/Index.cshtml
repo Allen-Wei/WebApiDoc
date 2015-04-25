@@ -1,0 +1,44 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Api Documentation</title>
+    <script src="~/Scripts/jquery-1.11.2.js"></script>
+</head>
+<body>
+
+    <script>
+        var get = function (id) {
+            if (id) { return $.getJSON('/Api/Person/' + id); }
+            else { return $.getJSON('/Api/Person'); }
+
+        };
+
+        var post = function (p) {
+            return $.ajax({
+                type: 'post',
+                url: '/api/person',
+                dataType: 'json',
+                contentType: 'application/json',
+                data: JSON.stringify(p)
+            });
+        };
+        var remove = function (id) {
+            return $.ajax({
+                type: 'delete',
+                url: '/api/person/' + id
+            });
+        };
+        console.write = function (promise) {
+            promise.then(function (data) {
+                console.log(data);
+            });
+        };
+    </script>
+</body>
+</html>
