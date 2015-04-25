@@ -49,6 +49,13 @@
 </p><p>
         Step 4: 输出结果. <img src="./Images/step6_OutputResult.PNG" alt=""/> </p>
 
+		<h3>Tip</h3>
+		<p>
+		1. 当注释代码中有特殊字符(和XML标签冲突)，需要使用<!CDATA[]>标签。如 Api/PersonController.cs截图的第33行代码。
+		</p>
+		<p>
+		2. 可以随意扩展注释标签，VS会自动将所有的 /// 开头符合规范的内容写入到Documentation里。如果需要这部分数据，你需要到DocumentModel.cs实体类添加相应的属性
+		</p>
 
         <footer class="site-footer">
             <span class="site-footer-owner"><a href="https://github.com/Allen-Wei/WebApiDoc">WebApiDoc</a> is maintained by <a href="https://github.com/Allen-Wei">Alan Wei</a>.</span>
