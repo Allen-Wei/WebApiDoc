@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace WebApiDoc.Models
+namespace Alan.WebApiDoc.Models
 {
 
     /// <summary>

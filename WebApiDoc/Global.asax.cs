@@ -8,7 +8,7 @@ using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.Http;
 
-namespace WebApiDoc
+namespace Alan.WebApiDoc
 {
     public class Global : System.Web.HttpApplication
     {

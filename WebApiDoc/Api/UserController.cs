@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
-using WebApiDoc.Models;
+using Alan.WebApiDoc.Models;
 
-namespace WebApiDoc.Api
+namespace Alan.WebApiDoc.Api
 {
     /// <summary>
     /// Person Api

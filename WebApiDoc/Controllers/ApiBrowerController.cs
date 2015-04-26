@@ -1,8 +1,8 @@
 ﻿using System.Web.Mvc;
 using System.Web.Http;
-using WebApiDoc.Models;
+using Alan.WebApiDoc.Models;
 
-namespace WebApiDoc.Controllers
+namespace Alan.WebApiDoc.Controllers
 {
     public class ApiBrowerController : Controller
     {
@@ -43,4 +43,5 @@ namespace WebApiDoc.Controllers
             return View(apis);
         }
     }
+
 }

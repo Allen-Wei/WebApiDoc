@@ -6,7 +6,7 @@ using System.Web.Http.Controllers;
 using System.Web.Http.Description;
 using System.Xml.XPath;
 
-namespace WebApiDoc.Library
+namespace Alan.WebApiDoc.Library
 {
     /// <summary>
     /// 实现默认文档提供器接口
