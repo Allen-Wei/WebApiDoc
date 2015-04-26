@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Alan.WebApiDoc.Models
+namespace Alan.WebApiDoc.Demonstration.Models
 {
     public class Person
     {

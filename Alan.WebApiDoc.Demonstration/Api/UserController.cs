@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
-using Alan.WebApiDoc.Models;
+using Alan.WebApiDoc.Demonstration.Models;
 
-namespace Alan.WebApiDoc.Api
+namespace Alan.WebApiDoc.Demonstration.Api
 {
     /// <summary>
     /// Person Api
@@ -17,6 +17,7 @@ namespace Alan.WebApiDoc.Api
         /// </summary>
         /// <returns>get all user</returns>
         /// <example>Get /Api/User</example>
+        /// <version>0.0.1.1</version>
         public IEnumerable<Person> Get()
         {
             return Person.PersonList;

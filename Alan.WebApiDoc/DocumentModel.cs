@@ -10,7 +10,7 @@ using System.IO;
 using System.Web.Http;
 using System.Web.Http.Description;
 
-namespace Alan.WebApiDoc.Models
+namespace Alan.WebApiDoc
 {
 
     //文档信息模型

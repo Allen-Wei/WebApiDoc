@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alan.WebApiDoc", "WebApiDoc\Alan.WebApiDoc.csproj", "{074727D8-D8BE-447D-827F-C5159632B2FD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alan.WebApiDoc.Demonstration", "Alan.WebApiDoc.Demonstration\Alan.WebApiDoc.Demonstration.csproj", "{074727D8-D8BE-447D-827F-C5159632B2FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alan.WebApiDoc", "Alan.WebApiDoc\Alan.WebApiDoc.csproj", "{F50A0C97-0141-43A4-87E6-1095B616DBB8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{074727D8-D8BE-447D-827F-C5159632B2FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{074727D8-D8BE-447D-827F-C5159632B2FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{074727D8-D8BE-447D-827F-C5159632B2FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F50A0C97-0141-43A4-87E6-1095B616DBB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F50A0C97-0141-43A4-87E6-1095B616DBB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F50A0C97-0141-43A4-87E6-1095B616DBB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F50A0C97-0141-43A4-87E6-1095B616DBB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

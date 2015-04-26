@@ -1,8 +1,9 @@
 ﻿using System.Web.Mvc;
 using System.Web.Http;
-using Alan.WebApiDoc.Models;
+using Alan.WebApiDoc.Demonstration.Models;
+using Alan.WebApiDoc;
 
-namespace Alan.WebApiDoc.Controllers
+namespace Alan.WebApiDoc.Demonstration.Controllers
 {
     public class ApiBrowerController : Controller
     {

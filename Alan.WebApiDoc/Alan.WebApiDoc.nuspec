@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Alan.WebApiDoc</id>
+    <version>0.0.0.1</version>
+    <title>Web Api Documentation</title>
+    <authors>Alan Wei</authors>
+    <owners>Alan Wei</owners>
+	<licenseUrl>http://allen-wei.github.io/WebApiDoc/</licenseUrl>
+	<projectUrl>http://allen-wei.github.io/WebApiDoc/</projectUrl>
+	<iconUrl>http://allen-wei.github.io/WebApiDoc/</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Asp.net Web Api Auto Generator</description>
+    <releaseNotes>Asp.net Web Api Auto Generator</releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <tags>WebApi Documentation</tags>
+  </metadata>
+</package>

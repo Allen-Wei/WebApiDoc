@@ -1,22 +1,23 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>Alan.WebApiDoc</name>
+        <name>Alan.WebApiDoc.Demonstration</name>
     </assembly>
     <members>
-        <member name="T:Alan.WebApiDoc.Api.UserController">
+        <member name="T:Alan.WebApiDoc.Demonstration.Api.UserController">
             <summary>
             Person Api
             </summary>
         </member>
-        <member name="M:Alan.WebApiDoc.Api.UserController.Get">
+        <member name="M:Alan.WebApiDoc.Demonstration.Api.UserController.Get">
             <summary>
             Get 
             </summary>
             <returns>get all user</returns>
             <example>Get /Api/User</example>
+            <version>0.0.1.1</version>
         </member>
-        <member name="M:Alan.WebApiDoc.Api.UserController.Get(System.Int32)">
+        <member name="M:Alan.WebApiDoc.Demonstration.Api.UserController.Get(System.Int32)">
             <summary>
             Get special user
             </summary>
@@ -24,7 +25,7 @@
             <returns>speical user</returns>
             <example>Get /Api/User/3</example>
         </member>
-        <member name="M:Alan.WebApiDoc.Api.UserController.Post(Alan.WebApiDoc.Models.Person)">
+        <member name="M:Alan.WebApiDoc.Demonstration.Api.UserController.Post(Alan.WebApiDoc.Demonstration.Models.Person)">
             <summary>
             Add new user
             </summary>
@@ -32,7 +33,7 @@
             <returns>Added person</returns>
             <example>Post /Api/User | [Body] {Id:2, FirstName: "Tom", LastName: "Jack"} </example>
         </member>
-        <member name="M:Alan.WebApiDoc.Api.UserController.Delete(System.Int32)">
+        <member name="M:Alan.WebApiDoc.Demonstration.Api.UserController.Delete(System.Int32)">
             <summary>
             Delete a person
             </summary>
@@ -40,12 +41,12 @@
             <returns>deleted or not</returns>
             <example>Delete /Api/User/3</example>
         </member>
-        <member name="T:Alan.WebApiDoc.Api.PersonController">
+        <member name="T:Alan.WebApiDoc.Demonstration.Api.PersonController">
             <summary>
             Person Api
             </summary>
         </member>
-        <member name="M:Alan.WebApiDoc.Api.PersonController.Get">
+        <member name="M:Alan.WebApiDoc.Demonstration.Api.PersonController.Get">
             <summary>
             Get 
             </summary>
@@ -53,7 +54,7 @@
             <example>Get /Api/Person</example>
             <remarks>Must get request</remarks>
         </member>
-        <member name="M:Alan.WebApiDoc.Api.PersonController.GetByPage(System.Int32,System.Int32)">
+        <member name="M:Alan.WebApiDoc.Demonstration.Api.PersonController.GetByPage(System.Int32,System.Int32)">
             <summary>
             Get special page
             </summary>
@@ -63,7 +64,7 @@
             <example><![CDATA[Get /Api/Person?page=1&count=10]]></example>
             <version>1.0.2</version>
         </member>
-        <member name="M:Alan.WebApiDoc.Api.PersonController.Get(System.Int32)">
+        <member name="M:Alan.WebApiDoc.Demonstration.Api.PersonController.Get(System.Int32)">
             <summary>
             Get special person
             </summary>
@@ -72,7 +73,7 @@
             <example>Get /Api/Person/3</example>
             <remarks>Must get request</remarks>
         </member>
-        <member name="M:Alan.WebApiDoc.Api.PersonController.Post(Alan.WebApiDoc.Models.Person)">
+        <member name="M:Alan.WebApiDoc.Demonstration.Api.PersonController.Post(Alan.WebApiDoc.Demonstration.Models.Person)">
             <summary>
             Add new person
             </summary>
@@ -80,7 +81,7 @@
             <returns>Added person</returns>
             <example>Post /Api/Person | [Body] {Id:2, FirstName: "Tom", LastName: "Jack"} </example>
         </member>
-        <member name="M:Alan.WebApiDoc.Api.PersonController.Delete(System.Int32)">
+        <member name="M:Alan.WebApiDoc.Demonstration.Api.PersonController.Delete(System.Int32)">
             <summary>
             Delete a person
             </summary>
@@ -94,23 +95,18 @@
             </summary>
             <remarks>原文<![CDATA[http://blogs.msdn.com/b/yaohuang1/archive/2012/05/21/asp-net-web-api-generating-a-web-api-help-page-using-apiexplorer.aspx]]></remarks>
         </member>
-        <member name="T:Alan.WebApiDoc.Models.ApiDescriptionModel">
-            <summary>
-            API描述
-            </summary>
-        </member>
-        <member name="M:Alan.WebApiDoc.Models.Person.AddPerson(Alan.WebApiDoc.Models.Person)">
+        <member name="M:Alan.WebApiDoc.Demonstration.Models.Person.AddPerson(Alan.WebApiDoc.Demonstration.Models.Person)">
             <summary>
             Add person
             </summary>
             <param name="p">person</param>
         </member>
-        <member name="P:Alan.WebApiDoc.Models.Person.Id">
+        <member name="P:Alan.WebApiDoc.Demonstration.Models.Person.Id">
             <summary>
             Person Id
             </summary>
         </member>
-        <member name="P:Alan.WebApiDoc.Models.Person.FirstName">
+        <member name="P:Alan.WebApiDoc.Demonstration.Models.Person.FirstName">
             <summary>
             Person firstname
             </summary>
