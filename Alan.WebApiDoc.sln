@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alan.WebApiDoc.Demonstration", "Alan.WebApiDoc.Demonstration\Alan.WebApiDoc.Demonstration.csproj", "{074727D8-D8BE-447D-827F-C5159632B2FD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alan.WebApiDoc", "Alan.WebApiDoc\Alan.WebApiDoc.csproj", "{F50A0C97-0141-43A4-87E6-1095B616DBB8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{4C07C02A-CA37-4DB5-B096-FF54B3F57716}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

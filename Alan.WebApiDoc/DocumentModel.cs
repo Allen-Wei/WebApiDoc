@@ -23,6 +23,11 @@ namespace Alan.WebApiDoc
         [XmlElement("members")]
         public MembersNode membersNode { get; set; }
 
+        public DocumentModel()
+        {
+            this.membersNode = new MembersNode();
+        }
+
         public static DocumentModel GetDocument(string fileFullPath)
         {
             XmlSerializer serialize = new XmlSerializer(typeof(DocumentModel));
@@ -39,9 +44,15 @@ namespace Alan.WebApiDoc
         {
             [XmlElement("member")]
             public List<MemberNode> Members { get; set; }
+
+            public MembersNode()
+            {
+                this.Members = new List<MemberNode>();
+            }
         }
         public class MemberNode
         {
+      
 
             [XmlAttribute("name")]
             public string Name { get; set; }
@@ -55,8 +66,11 @@ namespace Alan.WebApiDoc
             public string Example { get; set; }
             [XmlElement("remarks")]
             public string Remarks { get; set; }
-            [XmlElement("version")]
-            public string Version { get; set; }
+            [XmlElement("note")]
+            public string Note { get; set; }
+            [XmlElement("permission")]
+            public string Permission { get; set; }
+          
 
             [XmlElement("param")]
             public List<MemberParam> Parameters { get; set; }
@@ -107,10 +121,19 @@ namespace Alan.WebApiDoc
         {
             [XmlAttribute("name")]
             public string Name { get; set; }
-            [XmlAttribute("example")]
-            public string Example { get; set; }
+           
             [XmlText]
             public string Comment { get; set; }
+
+            [XmlAttribute]
+            public string IsRequire { get; set; }
+
+            [XmlAttribute]
+            public string DefaultValue { get; set; }
+            [XmlAttribute]
+            public string Example { get; set; }
+            [XmlAttribute]
+            public string Note { get; set; }
         }
 
     }
