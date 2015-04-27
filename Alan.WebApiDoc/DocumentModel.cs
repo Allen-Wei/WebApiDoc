@@ -52,7 +52,7 @@ namespace Alan.WebApiDoc
         }
         public class MemberNode
         {
-      
+
 
             [XmlAttribute("name")]
             public string Name { get; set; }
@@ -70,7 +70,9 @@ namespace Alan.WebApiDoc
             public string Note { get; set; }
             [XmlElement("permission")]
             public string Permission { get; set; }
-          
+            [XmlElement("style")]
+            public string Style { get; set; }
+
 
             [XmlElement("param")]
             public List<MemberParam> Parameters { get; set; }
@@ -98,7 +100,7 @@ namespace Alan.WebApiDoc
             {
                 get
                 {
-                    return this.Name.Substring(0, 1);
+                    return (this.Name ?? " ").Substring(0, 1);
                 }
             }
 
@@ -107,7 +109,7 @@ namespace Alan.WebApiDoc
             {
                 get
                 {
-                    return this.Name.Substring(2, this.Name.Length - 2);
+                    return (this.Name ?? "   ").Substring(2, this.Name.Length - 2);
                 }
             }
 
@@ -121,7 +123,7 @@ namespace Alan.WebApiDoc
         {
             [XmlAttribute("name")]
             public string Name { get; set; }
-           
+
             [XmlText]
             public string Comment { get; set; }
 
