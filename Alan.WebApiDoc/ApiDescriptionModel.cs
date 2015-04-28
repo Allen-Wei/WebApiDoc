@@ -50,6 +50,10 @@ namespace Alan.WebApiDoc
             public string TypeName { get; set; }
             //参数的类型全称
             public string TypeFullName { get; set; }
+            public string Format { get; set; }
+            public Type ParaType { get; set; }
+
+
 
             //参数携带的文档信息
             public DocumentModel.MemberParam DocMemPara { get; set; }
@@ -71,6 +75,7 @@ namespace Alan.WebApiDoc
                                           {
                                               Name = para.Name,
                                               Source = para.Source.ToString(),
+                                              ParaType = para.ParameterDescriptor.ParameterType,
                                               TypeName = para.ParameterDescriptor.ParameterType.Name,
                                               TypeFullName = para.ParameterDescriptor.ParameterType.FullName
                                           }).ToList()

@@ -39,9 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Alan.WebApiDoc, Version=0.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Alan.WebApiDoc, Version=0.0.1.5, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Alan.WebApiDoc.0.0.1.0\lib\net45\Alan.WebApiDoc.dll</HintPath>
+      <HintPath>..\packages\Alan.WebApiDoc.0.0.1.5\lib\net45\Alan.WebApiDoc.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
