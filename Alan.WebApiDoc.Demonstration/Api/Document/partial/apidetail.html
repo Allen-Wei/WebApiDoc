@@ -1,0 +1,166 @@
+﻿<style type="text/css">
+    .api-table > tbody > tr > td:first-child { width: 120px; text-align: right; }
+    .btn-toggle { position: fixed; bottom: 10px; right: 15px; opacity: .5; z-index: 9; }
+    .btn-toggle:hover { opacity: .95; }
+    .slide-toggle { cursor: pointer; }
+</style>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        资源描述
+    </div>
+    <div class="panel-body">
+        <div title="Summary">
+            描述: {{main.controller.Summary}}
+        </div>
+        <hr />
+        <div title="Note">
+            备注: {{main.controller.Note}}
+        </div>
+        <hr />
+        <div class="Permission">
+            权限: {{main.controller.Permission}}
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        测试接口
+    </div>
+    <div class="panel-body">
+        <div class="input-group">
+            <span class="input-group-addon">接口选择</span>
+            <select class="form-control" ng-model="main.apiTest.selectedIndex">
+                <option ng-repeat="api in main.apis" title="{{api.DocDescription.Summary}}" value="{{$index}}">{{api.HttpMethod}} - {{api.RelativePath}} - {{api.DocDescription.Summary}}</option>
+            </select>
+        </div>
+        <br />
+        <div class="input-group">
+            <span class="input-group-addon">Url 参数</span>
+            <input ng-model="main.apiTest.urlParams" type="text" class="form-control" placeholder="在这里输入URL参数, 比如 para1=value1&para2=value2." />
+        </div>
+        <br />
+        <div class="input-group">
+            <span class="input-group-addon">Body数据</span>
+            <input ng-model="main.apiTest.body" type="text" class="form-control" placeholder='在这里输入Body的JSON 数据, Key和类型为string的value要使用双引号包裹, 比如{"Name":"Alan", Age: 25}.' />
+        </div>
+        <br />
+        <button class="btn btn-default" ng-click="main.apiTest.send()">测试</button>
+        <hr ng-show="main.apiTest.result" />
+        <div class="panel panel-default" ng-show="main.apiTest.result">
+            <div class="panel-heading">
+                测试结果
+                <i class="glyphicon glyphicon-chevron-down slide-toggle pull-right"></i>
+            </div>
+            <div class="panel-body api-collapse">
+                <pre>
+{{main.apiTest.result}}
+                </pre>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default" ng-repeat="api in main.apis">
+    <div class="panel-heading">
+        {{api.HttpMethod}} {{api.RelativePath}} {{api.DocDescription.Summary}}
+        <i class="glyphicon glyphicon-chevron-down slide-toggle pull-right"></i>
+    </div>
+
+    <table class="table table-bordered api-table api-collapse">
+        <tbody>
+            <tr>
+                <td>描述</td>
+                <td>{{api.DocDescription.Summary}}</td>
+            </tr>
+            <tr>
+                <td>Http Method</td>
+                <td>{{api.HttpMethod}}</td>
+            </tr>
+            <tr>
+                <td>接口地址</td>
+                <td>{{api.RelativePath}}</td>
+            </tr>
+            <tr>
+                <td>返回</td>
+                <td>{{api.DocDescription.Returns}}</td>
+            </tr>
+            <tr>
+                <td>例子</td>
+                <td>{{api.DocDescription.Example}}</td>
+            </tr>
+            <tr>
+                <td>标记</td>
+                <td>{{api.DocDescription.Remark}}</td>
+            </tr>
+            <tr>
+                <td>权限</td>
+                <td>{{api.DocDescription.Permission}}</td>
+            </tr>
+            <tr>
+                <td>备注</td>
+                <td>{{api.DocDescription.Note}}</td>
+            </tr>
+            <tr>
+                <td>参数</td>
+                <td>
+                    <div class="panel panel-default" ng-repeat="para in api.Parameters" ng-show="api.Parameters.length > 0">
+                        <div class="panel-heading" title="{{para.Format}}">
+                            <b>
+                                {{para.Name}}
+                            </b>
+                            <i>{{para.TypeName}}</i>
+                            <i class="glyphicon glyphicon-chevron-down slide-toggle pull-right"></i>
+                        </div>
+
+                        <table class="table table-bordered para-table api-collapse">
+                            <tbody>
+                                <tr>
+                                    <td>名称</td>
+                                    <td>{{para.Name}}</td>
+                                </tr>
+                                <tr>
+                                    <td>类型</td>
+                                    <td>{{para.TypeName}}</td>
+                                </tr>
+                                <tr>
+                                    <td>来源</td>
+                                    <td>{{para.Source}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Comment</td>
+                                    <td>{{para.DocMemPara.Comment}}</td>
+                                </tr>
+                                <tr title="{{para.Format}}">
+                                    <td>例子</td>
+                                    <td>{{para.DocMemPara.Example}}</td>
+                                </tr>
+                                <tr>
+                                    <td>备注</td>
+                                    <td>{{para.DocMemPara.Note}}</td>
+                                </tr>
+                                <tr>
+                                    <td>是否必须</td>
+                                    <td>{{para.DocMemPara.IsRequire}}</td>
+                                </tr>
+                                <tr>
+                                    <td>默认值</td>
+                                    <td>{{para.DocMemPara.DefaultValue}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                    </div>
+
+
+                    <span ng-show="api.Parameters.length <= 0">没有参数</span>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+
+
+<button class="btn btn-info btn-toggle">Toggle</button>

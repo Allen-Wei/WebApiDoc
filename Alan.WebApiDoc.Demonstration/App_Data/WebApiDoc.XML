@@ -8,6 +8,8 @@
             <summary>
             Person Api
             </summary>
+            <note>Resource description</note>
+            <permission>Permission description</permission>
         </member>
         <member name="M:Alan.WebApiDoc.Demonstration.Api.UserController.Get">
             <summary>
@@ -15,7 +17,6 @@
             </summary>
             <returns>get all user</returns>
             <example>Get /Api/User</example>
-            <version>0.0.1.1</version>
         </member>
         <member name="M:Alan.WebApiDoc.Demonstration.Api.UserController.Get(System.Int32)">
             <summary>

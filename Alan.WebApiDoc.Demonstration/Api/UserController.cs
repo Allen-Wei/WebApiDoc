@@ -10,6 +10,8 @@ namespace Alan.WebApiDoc.Demonstration.Api
     /// <summary>
     /// Person Api
     /// </summary>
+    /// <note>Resource description</note>
+    /// <permission>Permission description</permission>
     public class UserController : ApiController
     {
         /// <summary>
@@ -17,7 +19,6 @@ namespace Alan.WebApiDoc.Demonstration.Api
         /// </summary>
         /// <returns>get all user</returns>
         /// <example>Get /Api/User</example>
-        /// <version>0.0.1.1</version>
         public IEnumerable<Person> Get()
         {
             return Person.PersonList;

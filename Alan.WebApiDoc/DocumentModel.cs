@@ -31,8 +31,12 @@ namespace Alan.WebApiDoc
         public static DocumentModel GetDocument(string fileFullPath)
         {
             XmlSerializer serialize = new XmlSerializer(typeof(DocumentModel));
-            TextReader reader = new StreamReader(fileFullPath);
-            return (DocumentModel)serialize.Deserialize(reader);
+            var models = new DocumentModel();
+            using (TextReader reader = new StreamReader(fileFullPath))
+            {
+                models = (DocumentModel)serialize.Deserialize(reader);
+            }
+            return models;
         }
 
         public class AssemblyNode

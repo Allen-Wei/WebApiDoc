@@ -70,10 +70,16 @@ new Person(){
         public static void AddPerson(Person p)
         {
             var persons = PersonList;
+            p.Id = 1;
+            if (persons.Any())
+            {
+                p.Id = persons.Max(u => u.Id) + 1;
+            }
             persons.Add(p);
             PersonList = persons;
         }
-        public static bool DeletePersons(int id) {
+        public static bool DeletePersons(int id)
+        {
             var persons = PersonList;
             var query = persons.FirstOrDefault(p => p.Id == id);
             if (query == null) { return false; }
