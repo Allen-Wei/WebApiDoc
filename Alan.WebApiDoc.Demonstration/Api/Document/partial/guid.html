@@ -43,19 +43,21 @@ Delete(string filter)                                                           
 </pre>
             </li>
             <li>
-                <p>RSP接口</p>
+                <p>RSP接口(Attribute Route)</p>
                 <pre>
+[Route("rsp/Order/UpdateStatus")]
 [HttpGet]
 UpdateStatus(int id, strign newStatus)                                              //更新订单状态
+[Route("rsp/Order/Pay")]
 [HttpPost]
 Pay(Order order)                                                                    //支付订单
 </pre>
             </li>
             <li>
-                REST接口可以不标注Http Verbs(Get/Post/Put/Delete), 但是Action命名必须以Verb开始, 且需要添加 <code>/// &lt;style&gt;REST&lt;style&gt;</code> 注释.
+                REST接口可以不标注Http Verbs(Get/Post/Put/Delete), 但是Action命名必须以Verb开始.
             </li>
             <li>
-                RSP必须添加Http Verb注解. 当使用RSP接口时考虑这是不是新的资源，如果是最好新建一个资源采用REST来设计API.
+                对于比较复杂的接口，可以采用RSP Style(类似于Web Service)来开放接口, Action必须添加Http Verb注解和Route注解. Note: 当使用RSP接口时考虑这是不是新的资源，如果是最好新建一个资源采用REST来设计API.
             </li>
         </ol>
 

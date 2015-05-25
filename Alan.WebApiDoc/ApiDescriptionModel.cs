@@ -108,7 +108,15 @@ namespace Alan.WebApiDoc
         public void BindDocModel(List<DocumentModel.MemberNode> members)
         {
             var member = members.FirstOrDefault(mem => mem.AddressInAssembly == this.AddressInAssembly);
-            if (member == null) return;
+            if (member == null)
+            {
+                //fix bug
+                member = members.FirstOrDefault(mem => mem.AddressInAssembly == this.AddressInAssembly.Replace('+', '.'));
+            }
+            if (member == null)
+            {
+                member = new DocumentModel.MemberNode();
+            }
             BindDocModel(member);
         }
     }
