@@ -58,8 +58,13 @@ namespace Alan.WebApiDoc
         {
 
 
+            private string _name;
             [XmlAttribute("name")]
-            public string Name { get; set; }
+            public string Name
+            {
+                get { return this._name ?? "   "; }
+                set { this._name = value; }
+            }
 
             [XmlElement("summary")]
             public string Summary { get; set; }
@@ -104,7 +109,7 @@ namespace Alan.WebApiDoc
             {
                 get
                 {
-                    return (this.Name ?? " ").Substring(0, 1);
+                    return this.Name.Substring(0, 1);
                 }
             }
 
@@ -113,7 +118,7 @@ namespace Alan.WebApiDoc
             {
                 get
                 {
-                    return (this.Name ?? "   ").Substring(2, this.Name.Length - 2);
+                    return this.Name.Substring(2, this.Name.Length - 2);
                 }
             }
 
@@ -131,14 +136,14 @@ namespace Alan.WebApiDoc
             [XmlText]
             public string Comment { get; set; }
 
-            [XmlAttribute]
+            [XmlAttribute("isRequire")]
             public string IsRequire { get; set; }
 
-            [XmlAttribute]
+            [XmlAttribute("defaultValue")]
             public string DefaultValue { get; set; }
-            [XmlAttribute]
+            [XmlAttribute("example")]
             public string Example { get; set; }
-            [XmlAttribute]
+            [XmlAttribute("note")]
             public string Note { get; set; }
         }
 

@@ -4,43 +4,35 @@
         <name>Alan.WebApiDoc.Demonstration</name>
     </assembly>
     <members>
-        <member name="T:Alan.WebApiDoc.Demonstration.Api.UserController">
+        <member name="T:Alan.WebApiDoc.Demonstration.Api.ApiDocumentationController">
             <summary>
-            Person Api
+            API Document
             </summary>
-            <note>Resource description</note>
-            <permission>Permission description</permission>
         </member>
-        <member name="M:Alan.WebApiDoc.Demonstration.Api.UserController.Get">
+        <member name="M:Alan.WebApiDoc.Demonstration.Api.ApiDocumentationController.Get">
             <summary>
-            Get 
+            
             </summary>
-            <returns>get all user</returns>
-            <example>Get /Api/User</example>
+            <returns></returns>
         </member>
-        <member name="M:Alan.WebApiDoc.Demonstration.Api.UserController.Get(System.Int32)">
+        <member name="T:Alan.WebApiDoc.Demonstration.Api.GenericParameterDemonstrationController">
             <summary>
-            Get special user
+            Generic parameter demonstration
             </summary>
-            <param name="id">user id</param>
-            <returns>speical user</returns>
-            <example>Get /Api/User/3</example>
         </member>
-        <member name="M:Alan.WebApiDoc.Demonstration.Api.UserController.Post(Alan.WebApiDoc.Demonstration.Models.Person)">
+        <member name="M:Alan.WebApiDoc.Demonstration.Api.GenericParameterDemonstrationController.Post(Alan.WebApiDoc.Demonstration.Api.GenericParameterDemonstrationController.GenericParameter{Alan.WebApiDoc.Demonstration.Models.Person})">
             <summary>
-            Add new user
+            receive a generic parameter
             </summary>
-            <param name="entity">user</param>
-            <returns>Added person</returns>
-            <example>Post /Api/User | [Body] {Id:2, FirstName: "Tom", LastName: "Jack"} </example>
+            <param name="para">generic parameter</param>
+            <returns>object</returns>
         </member>
-        <member name="M:Alan.WebApiDoc.Demonstration.Api.UserController.Delete(System.Int32)">
+        <member name="M:Alan.WebApiDoc.Demonstration.Api.GenericParameterDemonstrationController.Put(Alan.WebApiDoc.Demonstration.Api.GenericParameterDemonstrationController.GenericParameter{Alan.WebApiDoc.Demonstration.Models.Person,Alan.WebApiDoc.ApiDescriptionModel})">
             <summary>
-            Delete a person
+            receive a generic parameter
             </summary>
-            <param name="id">Person id</param>
-            <returns>deleted or not</returns>
-            <example>Delete /Api/User/3</example>
+            <param name="parae">two generic parameter</param>
+            <returns>object</returns>
         </member>
         <member name="T:Alan.WebApiDoc.Demonstration.Api.PersonController">
             <summary>
@@ -90,18 +82,6 @@
             <returns>deleted or not</returns>
             <example>Delete /Api/Person/3</example>
         </member>
-        <member name="T:Alan.WebApiDoc.Library.XmlCommentDocumentationProvider">
-            <summary>
-            实现默认文档提供器接口
-            </summary>
-            <remarks>原文<![CDATA[http://blogs.msdn.com/b/yaohuang1/archive/2012/05/21/asp-net-web-api-generating-a-web-api-help-page-using-apiexplorer.aspx]]></remarks>
-        </member>
-        <member name="M:Alan.WebApiDoc.Demonstration.Models.Person.AddPerson(Alan.WebApiDoc.Demonstration.Models.Person)">
-            <summary>
-            Add person
-            </summary>
-            <param name="p">person</param>
-        </member>
         <member name="P:Alan.WebApiDoc.Demonstration.Models.Person.Id">
             <summary>
             Person Id
@@ -111,6 +91,18 @@
             <summary>
             Person firstname
             </summary>
+        </member>
+        <member name="M:Alan.WebApiDoc.Demonstration.Models.Person.AddPerson(Alan.WebApiDoc.Demonstration.Models.Person)">
+            <summary>
+            Add person
+            </summary>
+            <param name="p">person</param>
+        </member>
+        <member name="T:Alan.WebApiDoc.Library.XmlCommentDocumentationProvider">
+            <summary>
+            实现默认文档提供器接口
+            </summary>
+            <remarks>原文<![CDATA[http://blogs.msdn.com/b/yaohuang1/archive/2012/05/21/asp-net-web-api-generating-a-web-api-help-page-using-apiexplorer.aspx]]></remarks>
         </member>
     </members>
 </doc>

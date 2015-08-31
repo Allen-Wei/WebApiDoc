@@ -6,6 +6,9 @@ using System.Web.Http;
 
 namespace Alan.WebApiDoc.Demonstration.Api
 {
+    /// <summary>
+    /// API Document
+    /// </summary>
     public class ApiDocumentationController : ApiController
     {
 
@@ -35,6 +38,10 @@ namespace Alan.WebApiDoc.Demonstration.Api
                     var apis = ApiDescriptionModel.GetAllApis();
                     apis.ForEach(api =>
                     {
+                        if (api.AddressInAssembly.Contains("UserController.Change"))
+                        {
+                            var breakpoint = "";
+                        }
                         api.BindDocModel(doc);
                         api.Parameters.ForEach(para =>
                         {
@@ -46,7 +53,7 @@ namespace Alan.WebApiDoc.Demonstration.Api
                                     var instance = Activator.CreateInstance(t);
                                     para.Format = Newtonsoft.Json.JsonConvert.SerializeObject(instance);
                                 }
-                                catch(Exception ex)
+                                catch (Exception ex)
                                 {
                                     para.Format = ex.Message;
                                 }
@@ -57,32 +64,34 @@ namespace Alan.WebApiDoc.Demonstration.Api
                         System.Web.Caching.CacheItemPriority.Default, null);
                     apiModels = apis;
                 }
-                return apiModels;
+                return apiModels.OrderBy(a => a.ControllerName).ToList();
             }
         }
-
-        public IEnumerable<ApiDescriptionModel> Get()
-        {
-            var apis = GetApis;
-         
-            return apis;
-        }
-
-        public object Get(string id)
+        private object Get(string controllerName)
         {
 
-            var apis = GetApis.Where(api => api.ControllerName == id).ToList();
-           
+            var apis = GetApis.Where(api => api.ControllerName == controllerName).ToList();
+
             var controller =
-                GetDocs.FirstOrDefault(c => c.IsType && c.Name.EndsWith(String.Format(".{0}Controller", id)));
+                GetDocs.FirstOrDefault(c => c.IsType && c.Name.EndsWith(String.Format(".{0}Controller", controllerName)));
             return new { apis, controller };
         }
 
-        public IEnumerable<object> GetList(string action)
-        {
 
-            if (action == "controllers") return GetApis.Select(api => api.ControllerName).Distinct();
-            return new List<object>();
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public object Get()
+        {
+            var apis = GetApis
+                .Select(a => a.ControllerName)
+                .Distinct()
+                .Select(ctrlName => this.Get(ctrlName));
+            return apis;
         }
+
+
+
     }
 }
