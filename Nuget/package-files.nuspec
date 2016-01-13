@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Alan.WebApiDoc</id>
-    <version>0.0.1.16</version>
+    <version>0.0.1.23</version>
     <title>Web Api Documentation</title>
     <authors>Alan Wei</authors>
     <owners>Alan Wei</owners>
@@ -15,4 +15,9 @@
     <copyright>Copyright 2015</copyright>
     <tags>WebApi Documentation</tags>
   </metadata>
+  <files>
+	  <file src="..\Alan.WebApiDoc\bin\Release\Alan.WebApiDoc.dll" target="lib\net45\Alan.WebApiDoc.dll" />
+	  <file src="..\Alan.WebApiDoc\bin\Release\Alan.WebApiDoc.xml" target="lib\net45\Alan.WebApiDoc.xml" />
+	  <file src="..\Alan.WebApiDoc\bin\Release\Alan.WebApiDoc.pdb" target="lib\net45\Alan.WebApiDoc.pdb" />
+  </files>
 </package>

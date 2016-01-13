@@ -20,18 +20,11 @@
             Generic parameter demonstration
             </summary>
         </member>
-        <member name="M:Alan.WebApiDoc.Demonstration.Api.GenericParameterDemonstrationController.Post(Alan.WebApiDoc.Demonstration.Api.GenericParameterDemonstrationController.GenericParameter{Alan.WebApiDoc.Demonstration.Models.Person})">
+        <member name="M:Alan.WebApiDoc.Demonstration.Api.GenericParameterDemonstrationController.Put(Alan.WebApiDoc.Demonstration.Api.GenericParameterDemonstrationController.GenericParameter{Alan.WebApiDoc.Demonstration.Models.Person})">
             <summary>
             receive a generic parameter
             </summary>
-            <param name="para">generic parameter</param>
-            <returns>object</returns>
-        </member>
-        <member name="M:Alan.WebApiDoc.Demonstration.Api.GenericParameterDemonstrationController.Put(Alan.WebApiDoc.Demonstration.Api.GenericParameterDemonstrationController.GenericParameter{Alan.WebApiDoc.Demonstration.Models.Person,Alan.WebApiDoc.ApiDescriptionModel})">
-            <summary>
-            receive a generic parameter
-            </summary>
-            <param name="parae">two generic parameter</param>
+            <param name="parae" docName="Alan.WebApiDoc.Demonstration.Api.GenericParameterDemonstrationController.Put(System.Tuple{Alan.WebApiDoc.Demonstration.Models.Person,Alan.WebApiDoc.Demonstration.Api.GenericParameterDemonstrationController.GenericParameter{Alan.WebApiDoc.ApiDescriptionModel,Alan.WebApiDoc.Demonstration.Models.Person},System.String})">two generic parameter</param>
             <returns>object</returns>
         </member>
         <member name="T:Alan.WebApiDoc.Demonstration.Api.PersonController">

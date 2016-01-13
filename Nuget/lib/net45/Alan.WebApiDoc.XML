@@ -84,5 +84,27 @@
             参数类型
             </summary>
         </member>
+        <member name="P:Alan.WebApiDoc.ApiDescriptionModel.ParameterDescription.DocMemPara">
+            <summary>
+            参数携带的文档信息
+            </summary>
+        </member>
+        <member name="M:Alan.WebApiDoc.ApiDescriptionModel.GetAllApis">
+            <summary>
+            获取所有的接口
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Alan.WebApiDoc.ApiDescriptionModel.BindDocModel(Alan.WebApiDoc.DocumentModel.MemberNode)">
+            <summary>
+            将文档信息绑定到接口信息上
+            </summary>
+            <param name="member"></param>
+        </member>
+        <member name="T:Alan.WebApiDoc.Interceptor">
+            <summary>
+            拦截器
+            </summary>
+        </member>
     </members>
 </doc>

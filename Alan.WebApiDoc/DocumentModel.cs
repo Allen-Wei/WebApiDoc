@@ -145,6 +145,7 @@ namespace Alan.WebApiDoc
             public string Example { get; set; }
             [XmlAttribute("note")]
             public string Note { get; set; }
+
         }
 
     }

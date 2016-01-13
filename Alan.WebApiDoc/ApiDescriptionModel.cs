@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Controllers;
 
 namespace Alan.WebApiDoc
 {
@@ -31,6 +33,7 @@ namespace Alan.WebApiDoc
         /// 接口的Action名称(方法名)
         /// </summary>
         public string ActionName { get; set; }
+
         /// <summary>
         /// 获取接口在程序集中的路径地址
         /// </summary>
@@ -47,16 +50,17 @@ namespace Alan.WebApiDoc
                         var genericArgs = para.ParaType.GenericTypeArguments;
                         if (genericArgs.Any())
                         {
-                            //拥有泛型参数
-                            var methodName = para.ParaType.FullName.Split('+')[0] + "." + para.ParaType.Name.Split('`')[0];
-                            var genericArgsString = String.Join(",", genericArgs.Select(arg => arg.FullName));
-                            paraTypeFullName = String.Format("{0}{{{1}}}", methodName, genericArgsString);
+                            var methodName = para.ParaType.FullName.Replace("+", ".").Split('`')[0];
+                            var genericArgsForDoc = Interceptor.GetPrameterNames(para.ParaType);
+                            paraTypeFullName = String.Format("{0}{{{1}}}", methodName, String.Join(",", genericArgsForDoc));
                         }
                         return paraTypeFullName;
                     }).ToArray();
                     parameters = String.Format("({0})", String.Join(",", paraArray));
+
                 }
-                return String.Format("{0}.{1}{2}", this.ControllerType, this.ActionName, parameters);
+                var value = String.Format("{0}.{1}{2}", this.ControllerType, this.ActionName, parameters);
+                return value;
             }
         }
         /// <summary>
@@ -98,15 +102,19 @@ namespace Alan.WebApiDoc
             /// </summary>
             public Type ParaType { get; set; }
 
-
-
-            //参数携带的文档信息
+            /// <summary>
+            /// 参数携带的文档信息
+            /// </summary>
             public DocumentModel.MemberParam DocMemPara { get; set; }
         }
 
-        //获取所有的接口
+        /// <summary>
+        /// 获取所有的接口
+        /// </summary>
+        /// <returns></returns>
         public static List<ApiDescriptionModel> GetAllApis()
         {
+
             var query = from api in System.Web.Http.GlobalConfiguration.Configuration.Services.GetApiExplorer().ApiDescriptions
                         select new ApiDescriptionModel()
                         {
@@ -115,14 +123,16 @@ namespace Alan.WebApiDoc
                             ControllerName = api.ActionDescriptor.ControllerDescriptor.ControllerName,
                             ControllerType = api.ActionDescriptor.ControllerDescriptor.ControllerType.FullName,
                             ActionName = api.ActionDescriptor.ActionName,
-                            Parameters = (from para in api.ParameterDescriptions
+                            Parameters = (from para in api.ParameterDescriptions ?? new System.Collections.ObjectModel.Collection<System.Web.Http.Description.ApiParameterDescription>()
+                                          let paraDesc = para.ParameterDescriptor
+                                          let paraType = (paraDesc == null) ? typeof(object) : paraDesc.ParameterType
                                           select new ApiDescriptionModel.ParameterDescription()
                                           {
                                               Name = para.Name,
                                               Source = para.Source.ToString(),
-                                              ParaType = para.ParameterDescriptor.ParameterType,
-                                              TypeName = para.ParameterDescriptor.ParameterType.Name,
-                                              TypeFullName = para.ParameterDescriptor.ParameterType.FullName
+                                              ParaType = paraType,
+                                              TypeName = paraType.Name,
+                                              TypeFullName = paraType.FullName
                                           }).ToList()
                         };
             return query.ToList();
@@ -133,7 +143,10 @@ namespace Alan.WebApiDoc
             this.Parameters = new List<ParameterDescription>();
         }
 
-        //将文档信息绑定到接口信息上
+        /// <summary>
+        /// 将文档信息绑定到接口信息上
+        /// </summary>
+        /// <param name="member"></param>
         public void BindDocModel(DocumentModel.MemberNode member)
         {
             this.DocDescription = member;
@@ -150,6 +163,7 @@ namespace Alan.WebApiDoc
                 }
             }
         }
+
         public void BindDocModel(List<DocumentModel.MemberNode> members)
         {
             var member = members.FirstOrDefault(mem => mem.AddressInAssembly == this.AddressInAssembly);
@@ -164,7 +178,6 @@ namespace Alan.WebApiDoc
             }
             BindDocModel(member);
         }
+
     }
-
-
 }
